@@ -10,6 +10,7 @@ class Fruta:
         self.tam = tx, ty
         self.height = ty
         self.width = tx
+        self.hitbox = (self.x, self.y, self.width, self.height)
 
     def movimento(self):
         if self.y > 700:
@@ -18,10 +19,13 @@ class Fruta:
         else:
             self.y += randint(3, 11)
 
-    def inserir_fruta(self):
+    def inserir_fruta(self, janela):
         imagem = pygame.image.load(self.img)
         imagem = pygame.transform.scale(imagem, self.tam)
         self.janela.blit(imagem, (self.x, self.y))
+
+        self.hitbox = (self.x, self.y, self.width, self.height)
+        pygame.draw.rect(janela, (0,0,0), self.hitbox, 1)
 
     def colisao(self, cesta, score):
         frutas = [[self.x, self.y],

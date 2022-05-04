@@ -37,14 +37,12 @@ while janela_aberta:
     morango.movimento()
     laranja.movimento()
     
-    cesta.inserir_cesta()
-    melancia.inserir_fruta()
-    banana.inserir_fruta()
-    uva.inserir_fruta()
-    morango.inserir_fruta()
-    laranja.inserir_fruta()
-
-    cesta.draw(janela)
+    cesta.inserir_cesta(janela)
+    melancia.inserir_fruta(janela)
+    banana.inserir_fruta(janela)
+    uva.inserir_fruta(janela)
+    morango.inserir_fruta(janela)
+    laranja.inserir_fruta(janela)
 
     mensagem = f'Pontos: {score}'
     texto_formatado = fonte.render(mensagem, True, (255, 255, 255))
