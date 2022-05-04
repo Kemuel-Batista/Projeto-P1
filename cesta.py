@@ -10,7 +10,10 @@ class Cesta:
         self.veloc = 6
         self.height = 150
         self.width = 200
-        self.hitbox = (self.x, self.y, 90, 60)
+
+        self.image = pygame.image.load('cesta2.png')
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
+        self.rect = self.image.get_rect()
 
     def move_cesta(self):
         keys = pygame.key.get_pressed() 
@@ -20,11 +23,20 @@ class Cesta:
         if keys[pygame.K_RIGHT] and self.x < 548: 
             self.x += self.veloc
 
-    def inserir_cesta(self, janela):
-        imagem = pygame.image.load('cesta2.png')
-        tam = 200, 150
-        imagem = pygame.transform.scale(imagem, tam)
-        self.janela.blit(imagem, (self.x, self.y))
+    def inserir_cesta(self):
+        self.janela.blit(self.image, (self.x, self.y))
 
-        self.hitbox = (self.x + 55, self.y + 60, 90, 50)
-        pygame.draw.rect(janela, (0,0,0), self.hitbox, 1)
+    def colisao(self, fruta, score):
+        corners = [[self.x, self.y],
+                   [self.x+self.width, self.y],
+                   [self.x, self.y+self.height],
+                   [self.x+self.width, self.y+self.height]]
+        
+        # checa se qualquer um dos quatro cantos está dentro do jogador
+        for corner in corners:
+            if fruta.x <= corner[0] <= fruta.x+fruta.width\
+                and fruta.y <= corner[1] <= fruta.y+fruta.height:
+                # destroi o item
+                fruta.existes = False
+                score += 1
+                return score
