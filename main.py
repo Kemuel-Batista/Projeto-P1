@@ -10,6 +10,9 @@ fundo = pygame.image.load('fundo1.png')
 janela = pygame.display.set_mode((700,500))
 time = 30
 
+imagem = pygame.image.load('madeira.png')
+imagem = pygame.transform.scale(imagem, (700, 40))
+
 pygame.display.set_caption("Feira Maluca")
 
 cesta = Cesta(janela)
@@ -25,11 +28,12 @@ janela_aberta = True
 while janela_aberta:
     time -= 0.05
     if time <= 0:
-        messagebox.showinfo("Oops seu tempo acabou!", (f"Você conseguiu pegar:\nBananas: [x]\nUvas: [x]\nMorangos: [x]\nLaranjas: [x]\nMelancias: [x]"))
+        messagebox.showinfo("Oops seu tempo acabou!", (f"Você conseguiu pegar:\n{banana.score} bananas;\n{uva.score} uvas;\n{morango.score} morangos;\n{laranja.score} laranjas;\n{melancia.score} melancias."))
         if not messagebox.askyesno("Oops seu tempo acabou!", "Deseja jogar novamente?"):
             janela_aberta = False
         else:
             time = 30
+            Fruta.reseta_score(melancia, uva, banana, laranja, morango)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -49,9 +53,16 @@ while janela_aberta:
     uva.inserir_fruta()
     morango.inserir_fruta()
     laranja.inserir_fruta()
+
+    melancia.colisao(cesta)
+    banana.colisao(cesta)
+    uva.colisao(cesta)
+    morango.colisao(cesta)
+    laranja.colisao(cesta)
     
+    janela.blit(imagem, (0, 460))
     timer = font.render(str(int(time)), True, (255, 255, 255), None)
-    janela.blit(timer, (40, 440))
+    janela.blit(timer, (40, 465))
 
     pygame.display.update()
 

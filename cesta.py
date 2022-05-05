@@ -1,7 +1,7 @@
 import pygame
 
 class Cesta:
-    def __init__(self, janela, x=320, y=300):
+    def __init__(self, janela, x=320, y=352):
         self.janela = janela
         self.x = x
         self.y = y 
