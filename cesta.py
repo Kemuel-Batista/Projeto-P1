@@ -1,11 +1,11 @@
 import pygame
 
 class Cesta:
-    def __init__(self, janela, x=320, y=352):
+    def __init__(self, janela):
         self.janela = janela
-        self.x = x
-        self.y = y 
-        self.veloc = 15
+        self.x = 320
+        self.y = 352
+        self.veloc = 6
 
     def move_cesta(self):
         keys = pygame.key.get_pressed() 

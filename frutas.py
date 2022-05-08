@@ -2,17 +2,17 @@ import pygame
 from random import randint
 
 class Fruta:
-    def __init__(self, janela, img, x, y, tx, ty):
+    def __init__(self, janela, img, tx, ty):
         self.janela = janela
         self.img = img
-        self.x = x
-        self.y = y 
+        self.x = randint(10, 470)
+        self.y = -(randint(10, 500)) 
         self.tam = tx, ty
         self.score = 0
 
     def movimento(self):
         if self.y > 440:
-            self.y = -(randint(10, 800))
+            self.y = -(randint(10, 600))
             self.x = randint(10, 470)
         else:
             self.y += randint(4, 11)
@@ -27,13 +27,20 @@ class Fruta:
         if self.y - 10 >= cesta.y and self.y <= 410:
             if (self.x - 30) > cesta.x and self.x + 60 < cesta.x + 200:
                 self.score += 1
-                self.y = -(randint(10, 800))
+                self.y = -(randint(10, 400))
                 self.x = randint(10, 470)
                 som_colisao.play()
 
     def reseta_score(melancia, uva, banana, laranja, morango):
-        uva.score = 0
-        melancia.score = 0
-        banana.score = 0
-        laranja.score = 0 
-        morango.score = 0
+        lista = [melancia, banana, uva, morango, laranja]
+        for i in lista:
+            i.score = 0
+
+    def frutas_cesta_jogo(melancia, banana, uva, morango, laranja, cesta):
+        lista = [melancia, banana, uva, morango, laranja]
+        for i in lista:
+            i.movimento()
+            i.inserir_fruta()
+            i.colisao(cesta)
+        cesta.inserir_cesta()
+        cesta.move_cesta()
