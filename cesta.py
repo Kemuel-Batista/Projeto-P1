@@ -5,7 +5,7 @@ class Cesta:
         self.janela = janela
         self.x = 320
         self.y = 352
-        self.veloc = 6
+        self.veloc = 14
 
     def move_cesta(self):
         keys = pygame.key.get_pressed() 
