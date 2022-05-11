@@ -14,15 +14,15 @@ Equipe: Caio Elias (cerp), Gabrielle Almeida (gao2), Gustavo Hollanda (ghcs), Hi
   - Classes de Fruta, Cesta e Principal
   
  - Divisão de Trabalho
-   - Dividimos o grupo em 3 partes como uma pré-organização, cada parte responsável para uma parte do código, Higor e Kemuel responsáveis pela Colisão, Gabi e Gustavo pelo Timer, Caio e Maria Eduarda, responsável de uma forma geral para atentar aos mínimos detalhes
+   - Dividimos o grupo inicialmente em quatro partes para atender aos requisitos básicos do projeto. Maria Eduarda, reponsável pela definição das classes e movimentação dos objetos; Kemuel e Higor, reponsáveis pelas colisões entre as instâncias de diferentes classes; Caio e Gustavo pela adição do timer e Gabrielle com a exibição do score. Ao longo do projeto, implementações, ajustes e melhorias foram realizadas em diferentes partes do código por diferentes integrantes.
    
 - Conceitos
-  - Laços de repetições (Main.py), condicionais (Main.py), poo, classes (Fruta e Cesta), objetos (Main.py)
+  - Laços de repetição (ex.: loop do jogo); Declaração de classes (ex.: classe das frutas e da cesta); Importação de módulos e pacotes (ex.: pygame, tkinter); Condicionais (ex.: movimentação dos objetos); Formatação de texto (ex.: texto da messagebox); Iterar sobre listas (ex.: usado para reduzir repetições no código).
   
 - Desafios
-  - Maior erro cometido:
-  - Maior desafio: Parte da colisão, foi a parte mais chata e difícil e também a mais demorada, pesquisamos várias formas que no final não dava em lugar nenhum (seja por falta de experiência na linguagem ou por várias e várias tentativas fracassadas
-  - Quais as lições aprendidas: Aprendemos a trabalhar em equipe, a utilizar o github (uma ótima ferramenta para o nosso mundo), o pygame e nos aprofundamos ainda mais na linguagem que é o Python
+  - Maior erro cometido: A equipe sentiu que nenhum grande erro foi cometido, apesar disso, podemos destacar de forma geral alguns pontos, tais como: repetições dentro do código, adição de elementos desnecessários, partes do código inseridas em locais menos favoráveis e commits no github que deveriam ser uma nova branch e foram inseridos diretamente no main. Lidamos com esses e outros erros, na maioria das vezes, por meio do diálogo e conhecimento trocado entre os integrantes da equipe.
+  - Maior desafio: Inicialmente, conseguir relacionar uma imagem na tela com uma instância de uma classe. Além disso, adicionar o botão "jogar" e o timer também se mostraram bastante desafiadores devido à variedade de formas possíveis para a sua implementação, geralmente encontrada de forma mais complexa na internet. Entretanto, a parte da colisão, foi a mais chata e difícil e também a mais demorada, pesquisamos várias formas que no final não davam em lugar nenhum (seja por falta de experiência na linguagem ou pelas várias tentativas fracassadas). Para lidar com esses e outros desafios que surgiram ao longo do projeto foram necessárias longas pesquisas de fontes diferentes e a participação vários membros da equipe.
+  - Quais as lições aprendidas: Aprendemos a trabalhar em equipe, a se organizar para a elaboração de um projeto, a buscar conheciemnto de forma autônoma, a utilizar o github (uma ótima ferramenta para o nosso mundo), o pygame e nos aprofundamos ainda mais na linguagem Python.
 
 <p align="center">
   <video alt="Feira CIN" src="https://user-images.githubusercontent.com/62821098/167503966-64f459ab-4fad-42d8-9c22-dcf691cdeba5.mp4">
@@ -36,10 +36,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Python](https://www.python.org)
 - [Pygame](https://www.pygame.org/news)
+- [Tkinter](https://docs.python.org/3/library/tkinter.html)
+- [Random](https://docs.python.org/pt-br/3/library/random.html)
 
 ## 🚀 Como executar
 
-Clone o projeto e acesse a pasta do mesmo.
+Clone o projeto e acesse a pasta na qual o arquivo foi inserido.
 
 ```bash
 $ git clone https://github.com/Kemuel-Batista/Projeto-P1
@@ -67,7 +69,3 @@ O layout da aplicação segue abaixo:
 ## 📝 License
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
----
-
-Feito com 💜 by O MALUCO NO PEDAÇO 👋🏻
