@@ -15,7 +15,7 @@ class Fruta:
             self.y = -(randint(10, 600))
             self.x = randint(10, 470)
         else:
-            self.y += randint(6, 16)
+            self.y += randint(9, 14)
 
     def inserir_fruta(self):
         imagem = pygame.image.load(self.img)
@@ -31,18 +31,13 @@ class Fruta:
                 self.x = randint(10, 470)
                 som_colisao.play()
 
-    def aumenta_tmp(self, time):
-        if self.score == 1:
-            time += 15
-            self.score = 0
-
     def reseta_score(melancia, uva, banana, laranja, morango):
         lista = [melancia, banana, uva, morango, laranja]
         for i in lista:
             i.score = 0
 
-    def frutas_cesta_jogo(melancia, banana, uva, morango, laranja, cesta):
-        lista = [melancia, banana, uva, morango, laranja]
+    def frutas_cesta_jogo(melancia, banana, uva, morango, laranja, cronometro, cesta):
+        lista = [melancia, banana, uva, morango, laranja, cronometro]
         for i in lista:
             i.movimento()
             i.inserir_fruta()

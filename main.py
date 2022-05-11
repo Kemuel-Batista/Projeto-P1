@@ -2,6 +2,7 @@ import pygame
 from tkinter import messagebox
 from cesta import Cesta
 from frutas import Fruta
+from random import randint
 
 pygame.init()
 janela = pygame.display.set_mode((695,495))
@@ -10,6 +11,7 @@ fundo2 = pygame.image.load('fundo2.png')
 pygame.display.set_caption("Feira Maluca")
 
 cesta = Cesta(janela)
+cronometro = Fruta(janela, 'cronometro.png', 40, 40)
 melancia = Fruta(janela, 'melancia.png', 60, 32)
 banana = Fruta(janela, 'banana.png', 60, 45)
 uva = Fruta(janela, 'uva.png', 60, 40)
@@ -36,7 +38,7 @@ while janela_aberta:
     if play == True:
         time -= 0.05      
         if time <= 0:
-            messagebox.showinfo("Oops seu tempo acabou!", (f"Você conseguiu pegar:\n{banana.score} bananas;\n{uva.score} uvas;\n{morango.score} morangos;\n{laranja.score} laranjas;\n{melancia.score} melancias."))
+            messagebox.showinfo("Oops seu tempo acabou!", (f"Você conseguiu pegar:\n{banana.score} bananas;\n{uva.score} uvas;\n{morango.score} morangos;\n{laranja.score} laranjas;\n{melancia.score} melancias.\nTotal: {banana.score+uva.score+morango.score+laranja.score+melancia.score}"))
             if not messagebox.askyesno("Oops seu tempo acabou!", "Deseja jogar novamente?"):
                 janela_aberta = False
             else:
@@ -44,7 +46,7 @@ while janela_aberta:
                 Fruta.reseta_score(melancia, uva, banana, laranja, morango)
                 
         janela.blit(fundo2, (0, 0))
-        Fruta.frutas_cesta_jogo(melancia, banana, uva, morango, laranja, cesta) 
+        Fruta.frutas_cesta_jogo(melancia, banana, uva, morango, laranja, cronometro, cesta) 
 
         timer = font.render(str(int(time)), True, (0, 0, 0), None)
         janela.blit(timer, (40, 465))
@@ -56,6 +58,11 @@ while janela_aberta:
         score_melancia = font_score.render(str(melancia.score), True, (0, 0, 0), None)
 
         Fruta.insere_score(score_banana, score_uva, score_morango, score_laranja, score_melancia, janela)
+        
+        if cronometro.score == 1:
+            cronometro.score = 0
+            time += randint(5, 15)
+            cronometro.y = -(randint(3300, 5200))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
